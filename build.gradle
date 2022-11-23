@@ -1,18 +1,29 @@
 plugins {
     id "java"
     id "application"
+    id 'org.springframework.boot' version '2.7.5'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+ext {
+    cucumberVer = "7.9.0"
+    junit5Ver = "5.9.1"
 }
 
 dependencies {
-    implementation 'commons-io:commons-io:2.11.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.0.3'
-    testImplementation 'io.cucumber:cucumber-java:6.8.0'
-    testImplementation 'io.cucumber:cucumber-junit-platform-engine:6.8.0'
+    implementation     group: "commons-io",               name: "commons-io",                     version: "2.11.0"
+    implementation     group: "org.springframework.boot", name: "spring-boot-starter-parent",     version: "2.7.5"
+    implementation     group: "org.springframework.boot", name: "spring-boot-starter-web"
+    implementation     group: "org.springframework.boot", name: "spring-boot-starter-actuator"
+    implementation     group: "org.springframework.boot", name: "spring-boot-starter-security"
+    testImplementation group: "org.junit.jupiter",        name: "junit-jupiter",                  version: "${junit5Ver}"
+    testRuntimeOnly    group: "org.junit.jupiter",        name: "junit-jupiter-engine",           version: "${junit5Ver}"
+    testImplementation group: "io.cucumber",              name: "cucumber-java",                  version: "${cucumberVer}"
+    testImplementation group: "io.cucumber",              name: "cucumber-junit-platform-engine", version: "${cucumberVer}"
 }
 
 application {
-    mainClassName = "Main"
+    mainClass = "Main"
 }
 
 repositories {
@@ -51,4 +62,5 @@ test {
     testLogging {
         events "passed", "skipped", "failed"
     }
+
 }

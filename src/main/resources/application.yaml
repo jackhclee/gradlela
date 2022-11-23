@@ -1,0 +1,30 @@
+logging:
+  level:
+    org:
+      springframework:
+        boot: DEBUG
+info:
+  app:
+    name: Spring Actuator Example
+    java:
+      version: 10
+    type: Spring Boot
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: "appversion"
+  endpoint:
+   info:
+      enabled: true
+   appversion:
+      enabled: true
+   health:
+      show-details: always
+spring:
+  security:
+    user:
+      name: user
+      password: password
+

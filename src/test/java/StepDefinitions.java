@@ -12,16 +12,18 @@ public class StepDefinitions {
         acctBalance = initialBalance;
     }
 
-    @When("the account is credited with {double}")
-    public void creditAccount(Double credit) {
-        acctBalance += 10.0;
+    @When("the account is {word} with {double}")
+    public void modifyAccount(String action, Double amount) {
+        if (action.equals("credited")) {
+            acctBalance += amount;
+        } else {
+            acctBalance -= amount;
+        }
     }
 
     @Then("account should have a balance of {double}")
     public void checkAccount(Double expectedBalance) {
         Assertions.assertEquals(acctBalance ,expectedBalance);
     }
-
-
 
 }
