@@ -27,4 +27,6 @@ spring:
     user:
       name: user
       password: password
+app:
+  title: default
 
