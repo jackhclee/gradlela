@@ -14,6 +14,6 @@ public class SpringAppTestDefault {
 
     @Test
     public void testTitle() {
-        assertEquals("default", title);
+        assertEquals("Gradlela", title);
     }
 }

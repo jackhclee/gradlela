@@ -14,12 +14,16 @@ management:
     enabled-by-default: true
     web:
       exposure:
-        include: "appversion"
+        include: health, appversion, info, beans, mappings
   endpoint:
    info:
       enabled: true
    appversion:
       enabled: true
+   beans:
+      enabled: true
+   mappings:
+     enabled: true
    health:
       show-details: always
 spring:
@@ -28,5 +32,5 @@ spring:
       name: user
       password: password
 app:
-  title: default
+  title: Gradlela
 
